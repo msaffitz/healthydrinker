@@ -4,6 +4,7 @@
     <title>Cheers</title>
 
     <link rel="stylesheet" href="css/jquery.mobile-1.1.0.css" />
+    <link rel="stylesheet" href="css/mhealth.css" />
     <script data-main="src/main" src="lib/require.js"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
@@ -15,7 +16,9 @@
         <h1>Cheers!</h1>
       </div>
       <div data-role="content">
-
+        <a href="https://mhealth.att.com/auth?client_id=healthydrinker&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A4567%2F&scope=%2Fread%2Fhealth%2Fuser" rel="external" class="mhealth_connect">
+          Tap to connect with mHealth
+        </a>
       </div>
       <div data-role="footer">
         <small>2012</small>
