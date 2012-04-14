@@ -20,6 +20,18 @@
         });
         $('.iconInnerBorder').corner('8px');
         $('.iconOuterBorder').corner('12px');
+
+        function drinkClick(event) {
+          console.log("Just drank a " + event.data.name + " worth " + event.data.shots + " drinks!");
+        }
+
+        //document.getElementById('longIsland').addEventListener('click', function(){console.log('bah');}, false);
+        $('#longIsland').bind('click', {shots:3, name:'Long Island Iced Tea'}, drinkClick);
+        $('#martini').bind(   'click', {shots:2, name:'Martini'}, drinkClick);
+        $('#daquiri').bind(   'click', {shots:2, name:'Banana Daquiri'}, drinkClick);
+        $('#redwine').bind(   'click', {shots:1, name:'Red Wine'}, drinkClick);
+        $('#shot').bind(      'click', {shots:1, name:'Tequila Shot'}, drinkClick);
+        $('#pbr').bind(       'click', {shots:1, name:'Pabst Blue Ribbon'}, drinkClick);
       });
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
@@ -45,12 +57,12 @@
         <h1>Cheers!</h1>
       </div>
       <div class="iconView" data-role="content">
-        <img class="drinkIcon" src="images/icons/long_island.png"/>
-        <img class="drinkIcon" src="images/icons/martini.png"/>
-        <img class="drinkIcon" src="images/icons/daquiri.png"/>
-        <img class="drinkIcon" src="images/icons/redwine.png"/>
-        <img class="drinkIcon" src="images/icons/shot.png"/>
-        <img class="drinkIcon" src="images/icons/pbr.png"/>
+        <img id="longIsland" class="drinkIcon" src="images/icons/long_island.png"/>
+        <img id="martini"    class="drinkIcon" src="images/icons/martini.png"/>
+        <img id="daquiri"    class="drinkIcon" src="images/icons/daquiri.png"/>
+        <img id="redwine"    class="drinkIcon" src="images/icons/redwine.png"/>
+        <img id="shot"       class="drinkIcon" src="images/icons/shot.png"/>
+        <img id="pbr"        class="drinkIcon" src="images/icons/pbr.png"/>
       </div>
       <div data-id="cheersFooter" data-role="footer" data-position="fixed">
         <small>2012</small>
