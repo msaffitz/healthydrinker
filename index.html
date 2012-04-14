@@ -25,7 +25,6 @@
           console.log("Just drank a " + event.data.name + " worth " + event.data.shots + " drinks!");
         }
 
-        //document.getElementById('longIsland').addEventListener('click', function(){console.log('bah');}, false);
         $('#longIsland').bind('click', {shots:3, name:'Long Island Iced Tea'}, drinkClick);
         $('#martini').bind(   'click', {shots:2, name:'Martini'}, drinkClick);
         $('#daquiri').bind(   'click', {shots:2, name:'Banana Daquiri'}, drinkClick);
