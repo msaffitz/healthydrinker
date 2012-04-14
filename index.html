@@ -3,9 +3,18 @@
   <head>
     <title>Cheers</title>
 
-    <link rel="stylesheet" href="css/jquery.mobile-1.1.0.css" />
-    <script data-main="src/main" src="lib/require.js"></script>
+    <link rel="stylesheet" href="css/jquery.mobile-1.1.0.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+    <script src="lib/jquery-1.7.2.js"></script>
+    <script src="lib/jquery.mobile-1.1.0.js"></script>
+    <script src="lib/jquery-corners.js"></script>
 
+    <script>
+      $(document).ready(function() {
+        $('.iconInnerBorder').corner('8px');
+        $('.iconOuterBorder').corner('12px');
+      });
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
   </head>
   <body>
@@ -15,7 +24,11 @@
         <h1>Cheers!</h1>
       </div>
       <div data-role="content">
-
+        <div class="iconOuterBorder">
+          <div class="iconInnerBorder">
+            <img src="images/icons/pbr.png"/>
+          </div>
+        </div>
       </div>
       <div data-role="footer">
         <small>2012</small>

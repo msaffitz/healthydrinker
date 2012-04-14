@@ -1,0 +1,9 @@
+.iconOuterBorder {
+	background-color: #5599bb;
+	display: inline-block;
+	padding: 10px;
+}
+
+.iconInnerBorder {
+	background-color: white;
+}
