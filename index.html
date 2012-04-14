@@ -22,15 +22,30 @@
         $('.iconOuterBorder').corner('12px');
 
         function drinkClick(event) {
-          console.log("Just drank a " + event.data.name + " worth " + event.data.shots + " drinks!");
+          var drink = event.data.drink;
+          console.log("Just drank a " + event.data.name + " worth " + drink + " drinks!");
+          data = {
+            timestamp: +new Date(),
+            name: 'drink',
+            unit: 'number',
+            value: drink
+          };
+          var oauthtoken = ''; // TODO: Get the actual oauth token.
+          var url = 'https://api-mhealth.att.com/v2/health/source/healthydrinker?accept=jsonp&oauth_token=' + oauthtoken + '&callback=drinksAddedCallback';
+          var myScript = document.createElement('script');
+          myScript.type='text/javascript';
+          myScript.src=url;
+          document.body.appendChild(myScript);
+
+          return false;
         }
 
-        $('#longIsland').bind('click', {shots:3, name:'Long Island Iced Tea'}, drinkClick);
-        $('#martini').bind(   'click', {shots:2, name:'Martini'}, drinkClick);
-        $('#daquiri').bind(   'click', {shots:2, name:'Banana Daquiri'}, drinkClick);
-        $('#redwine').bind(   'click', {shots:1, name:'Red Wine'}, drinkClick);
-        $('#shot').bind(      'click', {shots:1, name:'Tequila Shot'}, drinkClick);
-        $('#pbr').bind(       'click', {shots:1, name:'Pabst Blue Ribbon'}, drinkClick);
+        $('#longIsland').bind('click', {drink:3, name:'Long Island Iced Tea'}, drinkClick);
+        $('#martini').bind(   'click', {drink:2, name:'Martini'}, drinkClick);
+        $('#daquiri').bind(   'click', {drink:2, name:'Banana Daquiri'}, drinkClick);
+        $('#redwine').bind(   'click', {drink:1, name:'Red Wine'}, drinkClick);
+        $('#shot').bind(      'click', {drink:1, name:'Tequila Shot'}, drinkClick);
+        $('#pbr').bind(       'click', {drink:1, name:'Pabst Blue Ribbon'}, drinkClick);
       });
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
