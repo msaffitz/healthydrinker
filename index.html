@@ -11,6 +11,7 @@
     <script src="lib/jquery-1.7.2.js"></script>
     <script src="lib/jquery.mobile-1.1.0.js"></script>
     <script src="lib/jquery-corners.js"></script>
+    <script src="src/events.js"></script>
 
     <script>
       $(document).ready(function() {
@@ -30,7 +31,12 @@
         <h1>Cheers!</h1>
       </div>
       <div data-role="content">
-        <a href="https://mhealth.att.com/auth?client_id=healthydrinker&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A4567%2F&scope=%2Fread%2Fhealth%2Fuser" rel="external" class="mhealth_connect">
+        <a href="https://mhealth.att.com/auth?client_id=healthydrinker&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A4567%2F%23selection&scope=%2Fread%2Fhealth%2Fuser" rel="external" class="mhealth_connect">
+        <div class="iconOuterBorder">
+          <div class="iconInnerBorder">
+            <img src="images/icons/pbr.png"/>
+          </div>
+        </div>
           Tap to connect with mHealth
         </a>
       </div>
@@ -56,5 +62,6 @@
       </div>
     </div>
 
+    <div data-role="page" id="charts" />
   </body>
 </html>
