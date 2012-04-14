@@ -47,10 +47,9 @@
           Tap to connect with mHealth
         </a>
       </div>
-      <div data-id="cheersFooter" data-role="footer" data-position="fixed">
-        <small>2012</small>
+      <div  data-role="footer" data-position="fixed">
       </div>
-    </div>
+   </div>
 
     <div class="centerable" data-role="page" id="selection">
       <div data-role="header">
@@ -64,11 +63,34 @@
         <img id="shot"       class="drinkIcon" src="images/icons/shot.png"/>
         <img id="pbr"        class="drinkIcon" src="images/icons/pbr.png"/>
       </div>
-      <div data-id="cheersFooter" data-role="footer" data-position="fixed">
-        <small>2012</small>
+      <div data-id="footer" data-role="footer" data-position="fixed">
+        <div data-role="navbar" class="ui-navbar">
+          <ul>
+            <li>
+              <a href="#selection" class="ui-btn-active" id="drink" data-icon="custom" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-iconpos="top" data-theme="a" data-inline="true">Drink</a>
+            </li>
+            <li>
+              <a href="#charts" id="chart" data-icon="custom" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-iconpos="top" data-theme="a" data-inline="true">Chart</a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
 
-    <div data-role="page" id="charts" />
+    <div data-role="page" id="charts">
+      <div data-role="content">hi</div>
+      <div data-id="footer" data-role="footer" data-position="fixed">
+        <div data-role="navbar" class="ui-navbar">
+          <ul>
+            <li>
+              <a href="#selection" id="drink" data-icon="custom" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-iconpos="top" data-theme="a" data-inline="true">Drink</a>
+            </li>
+            <li>
+              <a href="#charts" class="ui-btn-active" id="chart" data-icon="custom" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-iconpos="top" data-theme="a" data-inline="true">Chart</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

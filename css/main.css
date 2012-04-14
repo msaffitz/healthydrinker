@@ -18,8 +18,24 @@
 
 body {
 	text-align: center;
-}
-body > centerable {
 	margin: 0 auto;
 	width: 900px;
+}
+
+.ui-btn-inner {
+  padding-top: 40px !important;
+}
+
+#drink .ui-icon, #chart .ui-icon {
+  background: url('/images/glyphish/88-beer-mug.png') 50% 50% no-repeat;
+  background-size: 24px 22px;
+  width: 30px !important;
+  height: 30px !important;
+  box-shadow: none!important;
+  border-radius: 0!important;
+  margin-left: -15px !important;
+}
+
+#chart .ui-icon {
+  background: url('/images/glyphish/77-ekg.png') 50% 50% no-repeat;
 }
