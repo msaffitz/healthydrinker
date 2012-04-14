@@ -3,6 +3,8 @@
   <head>
     <title>Cheers</title>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
     <link rel="stylesheet" href="css/jquery.mobile-1.1.0.css"/>
     <link rel="stylesheet" href="css/mhealth.css" />
     <link rel="stylesheet" href="css/main.css"/>
@@ -12,6 +14,9 @@
 
     <script>
       $(document).ready(function() {
+        $('.drinkIcon').wrap(function() {
+          return '<div class="iconOuterBorder"><div class="iconInnerBorder">' + $(this).text() + '</div></div>';
+        });
         $('.iconInnerBorder').corner('8px');
         $('.iconOuterBorder').corner('12px');
       });
@@ -25,11 +30,6 @@
         <h1>Cheers!</h1>
       </div>
       <div data-role="content">
-        <div class="iconOuterBorder">
-          <div class="iconInnerBorder">
-            <img src="images/icons/pbr.png"/>
-          </div>
-        </div>
         <a href="https://mhealth.att.com/auth?client_id=healthydrinker&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A4567%2F&scope=%2Fread%2Fhealth%2Fuser" rel="external" class="mhealth_connect">
           Tap to connect with mHealth
         </a>
@@ -38,5 +38,23 @@
         <small>2012</small>
       </div>
     </div>
+
+    <div data-role="page" id="selection">
+      <div data-role="header">
+        <h1>Cheers!</h1>
+      </div>
+      <div data-role="content">
+        <img class="drinkIcon" src="images/icons/long_island.png"/>
+        <img class="drinkIcon" src="images/icons/martini.png"/>
+        <img class="drinkIcon" src="images/icons/daquiri.png"/>
+        <img class="drinkIcon" src="images/icons/redwine.png"/>
+        <img class="drinkIcon" src="images/icons/shot.png"/>
+        <img class="drinkIcon" src="images/icons/pbr.png"/>
+      </div>
+      <div data-role="footer">
+        <small>2012</small>
+      </div>
+    </div>
+
   </body>
 </html>

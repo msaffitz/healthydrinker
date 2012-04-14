@@ -1,9 +1,17 @@
+
 .iconOuterBorder {
 	background-color: #5599bb;
 	display: inline-block;
-	padding: 10px;
+	padding: 5px;
+	margin:2px;
 }
 
 .iconInnerBorder {
+	padding: 5px;
 	background-color: white;
+}
+
+.drinkIcon {
+	width: 80px;
+	height: 80px;
 }
