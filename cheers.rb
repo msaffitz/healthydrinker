@@ -18,7 +18,7 @@ post '/drink' do
   logger.info "got response #{response}"
 end
 
-get '/data' do
+get '/getdata' do
   # drinksR = RestClient.get("https://api-mhealth.att.com/v2/health/source/healthydrinker/data?oauth_token=#{session[:access_token]}")
   # changesR = RestClient.get("https://api-mhealth.att.com/v2/health/data?m=gitlogger/healthydrinker&oauth_token=#{session[:access_token]}")
 
