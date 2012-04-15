@@ -2,6 +2,7 @@ require 'sinatra'
 require "rest-client"
 require "json"
 
+set :logging, true
 set :public_folder, File.dirname(__FILE__)
 
 get '/' do
@@ -21,6 +22,7 @@ get '/callback' do
     # credentials, and a post body containing grant_type=authorization_code,
     # code=the Authorization Code from mHealth Connect, and
     # redirect_uri=the same redirect URI given in the mHealth Connect link.
+    logger.info "callback #{params[:code]}"
     response = RestClient.post("https://healthydrinker:qaS3HnaJYbgCxNegzkfXSCa9o1l8pFQNtJORuMJ@mhealth.att.com/access_token.json", {
       :grant_type => "authorization_code",
       :code => params[:code],
