@@ -9,6 +9,8 @@ get '/' do
 end
 
 post '/drink' do
+  # response = RestClient.post("", {
+  # })
 
 end
 
@@ -16,13 +18,13 @@ get '/callback' do
   if !params[:error]
     # Sends a POST request to https://mhealth.att.com/access_token.json,
     # providing the Client ID and Secret Key as HTTP Basic Authorization
-    # credentials, and a post body containing grant_type=authorization_code,
+  } # credentials, and a post body containing grant_type=authorization_code,
     # code=the Authorization Code from mHealth Connect, and
     # redirect_uri=the same redirect URI given in the mHealth Connect link.
     response = RestClient.post("https://healthydrinker:qaS3HnaJYbgCxNegzkfXSCa9o1l8pFQNtJORuMJ@mhealth.att.com/access_token.json", {
       :grant_type => "authorization_code",
       :code => params[:code],
-      :redirect_uri => SlumberScore.setting(:redirect_uri)
+      :redirect_uri => 'http://cheers.herokuapp.com/callback'
     })
 
     # Parses the JSON response from the server (which contains the Access
