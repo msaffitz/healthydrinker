@@ -18,9 +18,14 @@ post '/drink' do
   logger.info "got response #{response}"
 end
 
-get '/data' do
+get '/drinks' do
+  # RestClient.get()
+end
+
+get '/commits' do
 
 end
+
 
 get '/callback' do
   if !params[:error]
@@ -42,6 +47,7 @@ get '/callback' do
     #
     # The JSON response from the server looks like:
     # {"access_token":"1bf71826-a05a-4fd3-9840-e05f8EXAMPLE"}
+    logger.info "token: #{JSON.parse(response)["access_token"]}"
     session[:access_token] = JSON.parse(response)["access_token"]
   end
 
