@@ -30,13 +30,17 @@
             unit: 'number',
             value: drink
           };
-          var oauthtoken = ''; // TODO: Get the actual oauth token.
-          var url = 'https://api-mhealth.att.com/v2/health/source/healthydrinker?accept=jsonp&oauth_token=' + oauthtoken + '&callback=drinksAddedCallback';
-          var myScript = document.createElement('script');
-          myScript.type='text/javascript';
-          myScript.src=url;
-          document.body.appendChild(myScript);
 
+          $.ajax({
+            type: 'POST',
+            url: 'http://cheers.herokuapp.com/drink?count=' + drink,
+            error: function(){
+              console.log("POST FAILED");
+            },
+            success: function(){
+              console.log("POST SUCCEEDED");
+            }
+          });
           return false;
         }
 
