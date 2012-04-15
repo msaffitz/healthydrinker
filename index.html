@@ -73,9 +73,15 @@
           $.plot($('#chartDiv'), data, options);
 */
 
+        // Get the data when charts tab is pressed.
+        $('[data-role=page]#charts').bind('pageshow', null, function( ev, data) {
+          console.log("CHARTS!");
+          $.mobile.changePage($('#charts'));
+          getData();
+        });
       });
 
-      function getDrinksData() {
+      function getData() {
         // Get's all data
         $.ajax({
           type: 'GET',
