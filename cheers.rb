@@ -6,6 +6,8 @@ require "time"
 set :logging, true
 set :public_folder, File.dirname(__FILE__)
 
+use Rack::Session::Cookie, :key => "healthydrinker.session"
+
 get '/' do
   return File.open('index.html')
 end
