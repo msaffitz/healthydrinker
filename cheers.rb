@@ -20,6 +20,7 @@ post '/drink' do
 end
 
 get '/getdata' do
+  logger.info "token is #{session[:access_token]}"
   drinksR = RestClient.get("https://api-mhealth.att.com/v2/health/source/healthydrinker/data?oauth_token=#{session[:access_token]}")
   changesR = RestClient.get("https://api-mhealth.att.com/v2/health/data?m=gitlogger/changed_lines&oauth_token=#{session[:access_token]}")
   # stepsR = RestClient.get("https://api-mhealth.att.com/v2/health/data?m=fitbit/steps&oauth_token=#{session[:access_token]}")
@@ -30,7 +31,7 @@ get '/getdata' do
 
   drinksO = {label: "Drinks", data: {'0' => 0, '1' => 0, '2' => 0, '3' => 0, '4' => 0, '5' => 0, '6' => 0}}
   commitsO = {label: "Changes", data: {'0' => 0, '1' => 0, '2' => 0, '3' => 0, '4' => 0, '5' => 0, '6' => 0}}
-  stepsO = {label: "Steps", data: {'0' => 0, '1' => 0, '2' => 0, '3' => 0, '4' => 0, '5' => 0, '6' => 0}}
+  # stepsO = {label: "Steps", data: {'0' => 0, '1' => 0, '2' => 0, '3' => 0, '4' => 0, '5' => 0, '6' => 0}}
 
   drinksO.map { |r| drinks[:data][Time.parse( r["timestamp"] ).wday.to_s] +=  r["value"]  }
   commitsO.map { |r| commits[:data][Time.parse( r["timestamp"] ).wday.to_s] +=  r["value"]  }
