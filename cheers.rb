@@ -19,8 +19,23 @@ post '/drink' do
 end
 
 get '/data' do
+  # drinksR = RestClient.get("https://api-mhealth.att.com/v2/health/source/healthydrinker/data?oauth_token=#{session[:access_token]}")
+  # changesR = RestClient.get("https://api-mhealth.att.com/v2/health/data?m=gitlogger/healthydrinker&oauth_token=#{session[:access_token]}")
+
+  # drinks = JSON.parse(drinksR)
+  # changes = JSON.parse(changesR)
+
+  drinksO = {label: "Drinks", data: {'0' => 0, '1' => 2, '2' => 2, '3' => 1, '4' => 3, '5' => 2, '6' => 1}}
+  commitsO = {label: "Changes", data: {'0' => 0, '1' => 5, '2' => 15, '3' => 6, '4' => 4, '5' => 10, '6' => 19}}
+
+  drinksO[:data] = drinksO[:data].map { |k,v| [k,v] }
+  commitsO[:data] = commitsO[:data].map { |k,v| [k,v] }
+
+  content_type :json
+  [drinksO, commitsO].to_json
 
 end
+
 
 get '/callback' do
   if !params[:error]
@@ -42,6 +57,7 @@ get '/callback' do
     #
     # The JSON response from the server looks like:
     # {"access_token":"1bf71826-a05a-4fd3-9840-e05f8EXAMPLE"}
+    logger.info "token: #{JSON.parse(response)["access_token"]}"
     session[:access_token] = JSON.parse(response)["access_token"]
   end
 
