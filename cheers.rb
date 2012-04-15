@@ -16,6 +16,9 @@ post '/drink' do
                                 "unit" => "number",
                                 "value"=> 1}])
   logger.info "got response #{response}"
+end
+
+get '/data' do
 
 end
 
