@@ -32,7 +32,7 @@ get '/data' do
   commitsO[:data] = commitsO[:data].map { |k,v| [k,v] }
 
   content_type :json
-  [drinksO, commitsO]
+  [drinksO, commitsO].to_json
 
 end
 
