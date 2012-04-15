@@ -18,11 +18,21 @@ post '/drink' do
   logger.info "got response #{response}"
 end
 
-get '/drinks' do
-  # RestClient.get()
-end
+get '/data' do
+  drinksR = RestClient.get("https://api-mhealth.att.com/v2/health/source/healthydrinker/data?oauth_token=#{session[:access_token]}")
+  changesR = RestClient.get("https://api-mhealth.att.com/v2/health/data?m=gitlogger/healthydrinker&oauth_token=#{session[:access_token]}")
 
-get '/commits' do
+  drinks = JSON.parse(drinksR)
+  changes = JSON.parse(changesR)
+
+  drinksO = {label: "Drinks", data: {'0' => 0, '1' => 2, '2' => 2, '3' => 1, '4' => 3, '5' => 2, '6' => 1}}
+  commitsO = {label: "Changes", data: {'0' => 0, '1' => 5, '2' => 15, '3' => 6, '4' => 4, '5' => 10, '6' => 19}}
+
+  drinksO[:data] = drinksO[:data].map { |k,v| [k,v] }
+  commitsO[:data] = commitsO[:data].map { |k,v| [k,v] }
+
+  content_type :json
+  [drinksO, commitsO]
 
 end
 
