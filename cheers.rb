@@ -13,11 +13,11 @@ get '/' do
 end
 
 post '/drink' do
-  response = RestClient.post("https://api-mhealth.att.com/v2/health/source/healthydrinker/data?oauth_token=#{session[:access_token]}", 
+  response = RestClient.post("https://api-mhealth.att.com/v2/health/source/healthydrinker/data?oauth_token=#{session[:access_token]}",
                               [{"timestamp" => Time.now.strftime('%s'),
                                 "name" => "drink",
                                 "unit" => "number",
-                                "value"=> 1}])
+                                "value"=> 1}].to_json)
   logger.info "got response #{response}"
 end
 
@@ -45,7 +45,6 @@ get '/getdata' do
 
   content_type :json
   [drinksO, commitsO, stepsO].to_json
-
 end
 
 
