@@ -23,7 +23,7 @@ get '/callback' do
     # code=the Authorization Code from mHealth Connect, and
     # redirect_uri=the same redirect URI given in the mHealth Connect link.
     logger.info "callback #{params[:code]}"
-    response = RestClient.post("https://healthydrinker:qaS3HnaJYbgCxNegzkfXSCa9o1l8pFQNtJORuMJ@mhealth.att.com/access_token.json", {
+    response = RestClient.post("https://healthydrinker:qaS3HnaJYbgCxNegzkfXSCa9o1l8pFQNtJORuMJg@mhealth.att.com/access_token.json", {
       :grant_type => "authorization_code",
       :code => params[:code],
       :redirect_uri => 'http://cheers.herokuapp.com/callback'
