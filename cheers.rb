@@ -35,12 +35,8 @@ get '/getdata' do
   commitsO = {label: "Changes", data: {'0' => 0, '1' => 0, '2' => 0, '3' => 0, '4' => 0, '5' => 0, '6' => 0}}
   # stepsO = {label: "Steps", data: {'0' => 0, '1' => 0, '2' => 0, '3' => 0, '4' => 0, '5' => 0, '6' => 0}}
 
-  drinksO.map do |r|
-    logger.info "existing value: #{Time.parse( r["timestamp"] ).wday.to_s}"
-    logger.info "adding: #{r["value"]}"
-    drinks[:data][Time.parse( r["timestamp"] ).wday.to_s] += r["value"].to_i
-  end
-  commitsO.map { |r| commits[:data][Time.parse( r["timestamp"] ).wday.to_s] +=  r["value"].to_i  }
+  drinks.map { |r|  drinksO[:data][Time.parse( r["timestamp"] ).wday.to_s] += r["value"].to_i }
+  commits.map { |r| commitsO[:data][Time.parse( r["timestamp"] ).wday.to_s] +=  r["value"].to_i  }
   # stepsO.map { |r| steps[:data][Time.parse( r["timestamp"] ).wday.to_s] +=  r["value"]  }
 
   drinksO[:data] = drinksO[:data].map { |k,v| [k,v] }
