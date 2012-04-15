@@ -1,9 +1,15 @@
 require 'sinatra'
+require "rest-client"
+require "json"
 
 set :public_folder, File.dirname(__FILE__)
 
 get '/' do
   return File.open('index.html')
+end
+
+post '/drink' do
+
 end
 
 get '/callback' do
