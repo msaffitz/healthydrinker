@@ -95,7 +95,8 @@
             var options = {
               lines: { show: true },
               points: { show: true },
-              xaxis: { tickDecimals: 0, tickSize: 1 }
+              xaxis: { tickDecimals: 0, tickSize: 1 },
+              legend: { position: 'nw'}
             };
             $.plot($('#chartDiv'), data, options);
           }
